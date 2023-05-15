@@ -1,17 +1,3 @@
-###################################################
-#              ZigBee over 802.15.4           	  #
-#                (beacon enabled)                 #
-#        Copyright (c) 2003 Samsung/CUNY          #
-# - - - - - - - - - - - - - - - - - - - - - - - - #
-#           Prepared by Jianliang Zheng           #
-#            (zheng@ee.ccny.cuny.edu)             #
-###################################################
-
-###################################################
-###########   Modified by Ma Yongsen   ############
-###################################################
-
-
 # Parameters Settings
 set val(chan)           Channel/WirelessChannel    ;# Channel Model: Wireless
 set val(prop)           Propagation/Shadowing      ;# Propragation Model: Shadowing (Shadowing/TwoRayGround/FreeSpace) 
@@ -107,10 +93,6 @@ source ./zigbee_topology.scn
 $ns_ at 0.0	"$node_(0) NodeLabel \"PAN Coor\""
 $ns_ at 0.0	"$node_(0) sscs startCTPANCoord"	
 
-
-
-#########################################################
-
 for {set i 1} {$i < 52} {incr i} {
 	$ns_ at [expr $i*($val(startInterval))] "$node_($i) sscs startCTDevice"
 }
@@ -119,7 +101,6 @@ for {set i 52} {$i < 56} {incr i} {
 	$ns_ at [expr $i*($val(startInterval))] "$node_($i) sscs startCTDevice"
 }
 
-#########################################################
 
 # Runing Speed of Nam
 Mac/802_15_4 wpanNam PlaybackRate 5ms
